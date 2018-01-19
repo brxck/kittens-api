@@ -17,14 +17,24 @@ class KittensController < ApplicationController
 
   def create
     @kitten = Kitten.create(kitten_params)
+    if @kitten.save
+      redirect_to @kitten
+    else
+      render :new
+    end
   end
 
   def update
-    @kitten.update_attributes(kitten_params)
+    if @kitten.update_attributes(kitten_params)
+      redirect_to @kitten
+    else
+      render :edit
+    end
   end
 
   def destroy
     @kitten.destroy
+    redirect_to :index
   end
 
   private
