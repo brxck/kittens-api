@@ -20,9 +20,11 @@ class KittensController < ApplicationController
   end
 
   def update
+    @kitten.update_attributes(kitten_params)
   end
 
   def destroy
+    @kitten.destroy
   end
 
   private
