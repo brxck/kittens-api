@@ -6,4 +6,16 @@
         - @kitten.errors.full_messages.each do |message|
           li = message
 
+  = f.label :name
+  = f.text_field :name
+
+  = f.label :age
+  = f.text_field :age
+
+  = f.label :softness
+  = f.text_field :softness
+
+  = f.label :cuteness
+  = f.text_field :cuteness
+
   .actions = f.submit

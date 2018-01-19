@@ -3,6 +3,7 @@ h1 Listing kittens
 table
   thead
     tr
+      th name
       th
       th
       th
@@ -10,6 +11,7 @@ table
   tbody
     - @kittens.each do |kitten|
       tr
+        td = kitten.name
         td = link_to 'Show', kitten
         td = link_to 'Edit', edit_kitten_path(kitten)
         td = link_to 'Destroy', kitten, data: { confirm: 'Are you sure?' }, method: :delete
