@@ -1,0 +1,19 @@
+h1 Listing kittens
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @kittens.each do |kitten|
+      tr
+        td = link_to 'Show', kitten
+        td = link_to 'Edit', edit_kitten_path(kitten)
+        td = link_to 'Destroy', kitten, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Kitten', new_kitten_path
