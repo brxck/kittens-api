@@ -18,22 +18,27 @@ class KittensController < ApplicationController
   def create
     @kitten = Kitten.create(kitten_params)
     if @kitten.save
+      flash[:success] = "Kitten created!"
       redirect_to @kitten
     else
+      flash.now[:danger] = "Kitten couldn't be created."
       render :new
     end
   end
 
   def update
     if @kitten.update_attributes(kitten_params)
+      flash[:success] = "Kitten updated!"
       redirect_to @kitten
     else
+      flash.now[:danger] = "Kitten couldn't be updated."
       render :edit
     end
   end
 
   def destroy
     @kitten.destroy
+    flash[:success] = "Kitten... destroyed?!"
     redirect_to :index
   end
 
